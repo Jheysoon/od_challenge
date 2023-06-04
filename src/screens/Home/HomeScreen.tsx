@@ -39,7 +39,7 @@ const HomeScreen = () => {
                     title={record.bank}
                     description={record.label}
                     titleStyle={{fontSize: 12}}
-                    descriptionStyle={{fontSize: 20, fontWeight: '600'}}
+                    descriptionStyle={{fontSize: 20, fontWeight: 'bold'}}
                     left={() => (
                       <List.Icon
                         icon="bank"
@@ -75,7 +75,7 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
   amountText: {
-    fontWeight: '600',
+    fontWeight: 'bold',
     fontSize: 20,
     marginTop: 10,
   },

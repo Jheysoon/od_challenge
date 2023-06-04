@@ -8,6 +8,8 @@ import {RootStackParamList, RootTabParamList} from '../../types';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
+import EntypoIcon from 'react-native-vector-icons/Entypo';
+import OcticonsIcon from 'react-native-vector-icons/Octicons';
 import Colors from '../constants/Colors';
 import HomeScreen from '../screens/Home/HomeScreen';
 //import VesselScreen from '../screens/VesselDetails/VesselScreen';
@@ -96,13 +98,27 @@ function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name="profileTab"
+        name="portfolio"
         component={ProfileScreen}
         options={{
-          title: 'Profile',
+          title: 'Portfolio',
           tabBarIcon: ({focused}) => (
             <AntDesignIcon
               name="idcard"
+              color={focused ? Colors.primary : Colors.primaryOpacity3}
+              size={23}
+            />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="bankAccounts"
+        component={SettingsScreen}
+        options={{
+          title: 'Bank Accounts',
+          tabBarIcon: ({focused}) => (
+            <EntypoIcon
+              name="list"
               color={focused ? Colors.primary : Colors.primaryOpacity3}
               size={23}
             />
@@ -115,8 +131,8 @@ function BottomTabNavigator() {
         options={{
           title: 'Settings',
           tabBarIcon: ({focused}) => (
-            <Ionicons
-              name="settings-outline"
+            <OcticonsIcon
+              name="kebab-horizontal"
               color={focused ? Colors.primary : Colors.primaryOpacity3}
               size={23}
             />

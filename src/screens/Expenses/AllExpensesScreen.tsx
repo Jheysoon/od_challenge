@@ -1,13 +1,13 @@
 import React from 'react';
 
 import {useNavigation} from '@react-navigation/native';
-import numeral from 'numeral';
 import {ScrollView, StyleSheet, View} from 'react-native';
-import {Appbar, Card, List} from 'react-native-paper';
+import {Appbar, Card} from 'react-native-paper';
 
 import {api} from '../../api';
 import {TOP_EXPENDING_CATEGORIES} from '../../api/mockData';
 import Loading from '../../components/UI/Loading';
+import ListItem from '../../components/expenses/ListItem';
 import Colors from '../../constants/Colors';
 
 const AllExpensesScreen = () => {
@@ -40,28 +40,7 @@ const AllExpensesScreen = () => {
                   />
                   <Card.Content>
                     {TOP_EXPENDING_CATEGORIES.map((record, index) => (
-                      <List.Item
-                        key={index}
-                        title={record.category}
-                        description={
-                          numeral(record.amount).format('$0,0.00') + ' spent'
-                        }
-                        titleStyle={{fontSize: 12}}
-                        descriptionStyle={styles.descriptionStyle}
-                        left={() => (
-                          <List.Icon
-                            icon="clipboard-list"
-                            color="#fff"
-                            style={{
-                              backgroundColor: record.bgColor,
-                              padding: 10,
-                              borderRadius: 50,
-                            }}
-                          />
-                        )}
-                        right={() => <List.Icon icon="chevron-right" />}
-                        style={styles.bottomDivider}
-                      />
+                      <ListItem key={index} record={record} />
                     ))}
                   </Card.Content>
                 </Card>
@@ -79,19 +58,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginTop: 14,
-  },
-  amountText: {
-    fontWeight: '600',
-    fontSize: 20,
-    marginTop: 10,
-  },
-  bottomDivider: {
-    borderBottomWidth: 1,
-    borderBottomColor: 'rgba(0, 0, 0, 0.08)',
-  },
-  descriptionStyle: {
-    fontSize: 20,
-    fontWeight: '600',
   },
 });
 
